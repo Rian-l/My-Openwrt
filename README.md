@@ -38,7 +38,7 @@
 
 `make menuconfig` 选择配置
 
-8：勾选ua2f以及你所需要的插件需要的app
+8：勾选ua2f/ipid以及你所需要的插件需要的app
 
 勾选上ua2f
 
@@ -82,11 +82,14 @@ NFQUEUE and NFLOG integration with Connection Tracking
 10：预编译需要的软件包
 
 `make download -j$(nproc) V=s`
+
 11：编译
 
 `make -j$(nproc) V=s`
-///////////////////////////////////////////////////////
-防检测配置：
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+### 防检测配置：
 
 1：修改主机名，设定时区，IP地址
 
@@ -148,7 +151,7 @@ iptables -I FORWARD -p tcp --sport 80 --tcp-flags ACK ACK -m string --algo bm --
 
 
 ### 联系我
-email：9351232462qq.com
+Email：9351232462qq.com
 
 ## 感激
 感谢以下的项目,排名不分先后
@@ -162,7 +165,7 @@ email：9351232462qq.com
 * [MentoHUST-OpenWrt-ipk](https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk) /mentohust主程序
 * [LEDE LuCI for MentoHUST](https://github.com/BoringCat/luci-app-mentohust) /mentohust图形化界面
 * [UA2F](https://github.com/Zxilly/UA2F) /UA2F
-* [rpk-ipid]（https://github.com/CHN-beta/rkp-ipid） 
+* [rpk ipid]（https://github.com/CHN-beta/rkp-ipid）
 * [argon主题]（https://github.com/thinktip/luci-theme-neobird） 
 
 
