@@ -115,7 +115,7 @@ service ua2f enable`
 
 service ua2f start`
 ```
-3：自启动项配置
+3：在启动项-本地启动脚本 exit 0前添加
 ```c
 iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
 iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
