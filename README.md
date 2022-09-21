@@ -148,7 +148,7 @@ iptables -t mangle -A POSTROUTING -j TTL --ttl-set 64
 //iptables 拒绝 AC 进行 Flash 检测
 iptables -I FORWARD -p tcp --sport 80 --tcp-flags ACK ACK -m string --algo bm --string " src=\"http://1.1.1." -j DROP`
 ```
-进行* [UA检测]（http://ua.233996.xyz/）
+进行UA检测 http://ua.233996.xyz/
 
 ### 联系我
 Email：9351232462qq.com
