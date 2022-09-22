@@ -30,7 +30,7 @@
 
 `git clone https://github.com/BoringCat/luci-app-mentohust.git package/luci-app-mentohust` /mentohust图形化界面
 
-`git clone https://github.com/liuqun/mentohust.git package/mentohust` /mentohust主程序
+`git clone https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git package/mentohust` /mentohust主程序
 
 7：`./scripts/feeds update -a` 同步feeds
 
