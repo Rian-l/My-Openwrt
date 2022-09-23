@@ -115,6 +115,24 @@ service ua2f enable`
 
 service ua2f start`
 ```
+或者可以修改lede/package/lean/default-settings/files/zzz-default-settings
+添加：
+```c
+# 开机自启
+uci set ua2f.enabled.enabled=1
+# 自动配置防火墙（默认开启）（建议开启）
+uci set ua2f.firewall.handle_fw=1
+# 处理内网流量（默认开启），防止在访问内网服务时被检测到。（建议开启）
+uci set ua2f.firewall.handle_intranet=1
+# 处理 443 端口流量（默认关闭），443 端口出现 http 流量的概率较低
+uci set ua2f.firewall.handle_tls=1
+# 处理微信的 mmtls（默认开启）（建议关闭）
+uci set ua2f.firewall.handle_mmtls=1
+# 提交上面设置
+uci commit ua2f
+# 添加 ua2f 服务自启
+service ua2f enable
+```
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ```c
