@@ -115,7 +115,7 @@ service ua2f enable`
 
 service ua2f start`
 ```
-或者可以修改/package/lean/default-settings/files/zzz-default-settings
+建议修改源码`/package/lean/default-settings/files/zzz-default-settings`
 添加：
 ```c
 # 开机自启
@@ -136,16 +136,7 @@ service ua2f enable
 service ua2f start
 ```
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-```c
-uci set ua2f.enabled.enabled=1
 
-uci set ua2f.firewall.handle_fw=1
-
-uci commit ua2f
-
-service ua2f enable
-```
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 3：在启动项-本地启动脚本 exit 0前添加
 ```c
