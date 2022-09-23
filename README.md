@@ -115,7 +115,7 @@ service ua2f enable`
 
 service ua2f start`
 ```
-或者可以修改lede/package/lean/default-settings/files/zzz-default-settings
+或者可以修改/package/lean/default-settings/files/zzz-default-settings
 添加：
 ```c
 # 开机自启
@@ -132,6 +132,8 @@ uci set ua2f.firewall.handle_mmtls=1
 uci commit ua2f
 # 添加 ua2f 服务自启
 service ua2f enable
+# ua2f启动
+service ua2f start
 ```
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
