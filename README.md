@@ -152,6 +152,22 @@ service ua2f enable
 iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
 iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
 
+# 通过 rkp-ipid 设置 IPID
+# 若没有加入rkp-ipid模块，此部分不需要加入
+iptables -t mangle -N IPID_MOD
+iptables -t mangle -A FORWARD -j IPID_MOD
+iptables -t mangle -A OUTPUT -j IPID_MOD
+iptables -t mangle -A IPID_MOD -d 0.0.0.0/8 -j RETURN
+iptables -t mangle -A IPID_MOD -d 127.0.0.0/8 -j RETURN
+# 由于本校局域网是 A 类网，所以我将这一条注释掉了，具体要不要注释结合你所在的校园网内网类型
+# iptables -t mangle -A IPID_MOD -d 10.0.0.0/8 -j RETURN
+iptables -t mangle -A IPID_MOD -d 172.16.0.0/12 -j RETURN
+iptables -t mangle -A IPID_MOD -d 192.168.0.0/16 -j RETURN
+iptables -t mangle -A IPID_MOD -d 255.0.0.0/8 -j RETURN
+iptables -t mangle -A IPID_MOD -j MARK --set-xmark 0x10/0x10
+
+# ua2f 改UA（此部分可不用加入，ua2f可以自动配置）
+
 iptables -t mangle -N ua2f
 iptables -t mangle -A ua2f -d 10.0.0.0/8 -j RETURN
 iptables -t mangle -A ua2f -d 127.0.0.0/8 -j RETURN
@@ -165,6 +181,7 @@ iptables -t mangle -A ua2f -p tcp --dport 80 -m string --string "/mmtls/" --algo
 iptables -t mangle -A ua2f -j NFQUEUE --queue-num 10010
 
 iptables -t mangle -A FORWARD -p tcp -m conntrack --ctdir ORIGINAL -j ua2f
+iptables -t mangle -A FORWARD -p tcp -m conntrack --ctdir REPLY
 
 //防时钟偏移检测
 iptables -t nat -N ntp_force_local
@@ -177,7 +194,7 @@ iptables -t nat -A ntp_force_local -s 192.168.0.0/16 -j DNAT --to-destination 19
 //通过 iptables 修改 TTL 值
 iptables -t mangle -A POSTROUTING -j TTL --ttl-set 64
 
-//iptables 拒绝 AC 进行 Flash 检测
+//iptables 拒绝 AC 进行 Flash 检测 （此部分可不用加入，已经过时）
 iptables -I FORWARD -p tcp --sport 80 --tcp-flags ACK ACK -m string --algo bm --string " src=\"http://1.1.1." -j DROP`
 ```
 进行UA检测 http://ua.233996.xyz/
