@@ -150,9 +150,9 @@ iptables -t mangle -A FORWARD -j IPID_MOD
 iptables -t mangle -A OUTPUT -j IPID_MOD
 iptables -t mangle -A IPID_MOD -d 0.0.0.0/8 -j RETURN
 iptables -t mangle -A IPID_MOD -d 127.0.0.0/8 -j RETURN
-# 由于本校局域网是 A 类网，所以我将这一条注释掉了，具体要不要注释结合你所在的校园网内网类型
-# iptables -t mangle -A IPID_MOD -d 10.0.0.0/8 -j RETURN
-iptables -t mangle -A IPID_MOD -d 172.16.0.0/12 -j RETURN
+# 由于本校局域网是 B 类网，所以我将这一条注释掉了，具体要不要注释结合你所在的校园网内网类型
+iptables -t mangle -A IPID_MOD -d 10.0.0.0/8 -j RETURN
+# iptables -t mangle -A IPID_MOD -d 172.16.0.0/12 -j RETURN
 iptables -t mangle -A IPID_MOD -d 192.168.0.0/16 -j RETURN
 iptables -t mangle -A IPID_MOD -d 255.0.0.0/8 -j RETURN
 iptables -t mangle -A IPID_MOD -j MARK --set-xmark 0x10/0x10
