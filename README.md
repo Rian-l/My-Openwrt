@@ -186,7 +186,7 @@ iptables -t nat -A ntp_force_local -s 192.168.0.0/16 -j DNAT --to-destination 19
 iptables -t mangle -A POSTROUTING -j TTL --ttl-set 64
 
 //iptables 拒绝 AC 进行 Flash 检测 （此部分可不用加入，已经过时）
-iptables -I FORWARD -p tcp --sport 80 --tcp-flags ACK ACK -m string --algo bm --string " src=\"http://1.1.1." -j DROP`
+iptables -I FORWARD -p tcp --sport 80 --tcp-flags ACK ACK -m string --algo bm --string " src=\"http://1.1.1." -j DROP
 ```
 进行UA检测 http://ua.233996.xyz/
 
