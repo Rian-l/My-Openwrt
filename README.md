@@ -97,6 +97,8 @@ NFQUEUE and NFLOG integration with Connection Tracking
 
  ntp服务器设置为：`ntp1.aliyun.com、time1.cloud.tencent.com、stdtime.gov.hk 、pool.ntp.org`
  
+ 可选：`/feeds/luci/collections/luci/Makefile` //修改默认主题
+ 
  2.进入路由器ttyd终端执行(启动ua2f)：
 ```c 
 uci set ua2f.enabled.enabled=1
