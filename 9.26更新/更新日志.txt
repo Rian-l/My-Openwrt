@@ -1,9 +1,0 @@
-添加：xl2tp（l2tp拨号依赖）network/vpn/xl2tp
-minieap （minieap主程序）https://github.com/BoringCat/minieap-openwrt
-luci-app-minieap （图形化界面） https://github.com/BoringCat/minieap-openwrt
-netkeeper（闪讯插件） https://github.com/CCnut/feed-netkeeper
-luci-proto-netkeeper（闪讯拨号界面）
-netkeeper-interception（闪讯拦截服务）
-luci-app-netkeeper-interception（闪讯拦截服务界面）
-
-提示需要luci-lib-ipkg，下载到lede/package。
