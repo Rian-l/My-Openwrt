@@ -31,7 +31,11 @@
 `git clone https://github.com/BoringCat/luci-app-mentohust.git package/luci-app-mentohust` /mentohust图形化界面
 
 `git clone https://github.com/KyleRicardo/MentoHUST-OpenWrt-ipk.git package/mentohust` /mentohust主程序
-可选：`git clone https://github.com/BoringCat/minieap-openwrt.git package/minieap` //minieap主程序
+
+可选：
+
+`git clone https://github.com/BoringCat/minieap-openwrt.git package/minieap` //minieap主程序
+
 `git clone https://github.com/BoringCat/luci-app-minieap.git package/luci-app-minieap`  //minieap图形化界面
 
 7：`./scripts/feeds update -a` 同步feeds
