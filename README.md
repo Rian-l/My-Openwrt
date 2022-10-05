@@ -68,6 +68,7 @@ kernel modules->Netfilter Extensions->kmod-ipt-u32
 
 kernel modules->Netfilter Extensions->kmod-ipt-ipopt
 
+kexuan 添加：xl2tp（l2tp拨号依赖）network/vpn/xl2tp
 
 9：内核编译配置
 
